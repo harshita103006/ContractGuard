@@ -1,29 +1,26 @@
-import google.generativeai as genai
+from google import genai
 from dotenv import load_dotenv
 import os
 
 load_dotenv()
 
-genai.configure(
+client = genai.Client(
     api_key=os.getenv("GEMINI_API_KEY")
 )
 
-model = genai.GenerativeModel(
-    "gemini-2.0-flash"
-)
-
 def ask_gemini(prompt):
+
     try:
-        print("Sending request...")
 
-        response = model.generate_content(prompt)
-
-        print("Response received...")
+        response = client.models.generate_content(
+            model="gemini-2.5-flash",
+            contents=prompt
+        )
 
         return response.text
 
     except Exception as e:
+
         print("ERROR:", e)
+
         return str(e)
-    
-print(model)
