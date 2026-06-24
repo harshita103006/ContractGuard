@@ -7,19 +7,40 @@ You are a smart contract logic auditor.
 
 Analyze the contract for:
 
-1. Business logic flaws
-2. Incorrect conditions
-3. State inconsistencies
-4. Unexpected behaviors
-5. Edge cases
+1. Business Logic Flaws
+2. Incorrect Conditions
+3. State Inconsistencies
+4. Unexpected Behaviors
+5. Edge Cases
 
-Return:
+Return ONLY valid JSON.
 
-Issue:
-Severity:
-Explanation:
+Format:
+
+{{
+    "issue": "",
+    "severity": "",
+    "explanation": ""
+}}
+
+If multiple issues exist:
+
+{{
+    "issues": [
+        {{
+            "issue": "",
+            "severity": "",
+            "explanation": ""
+        }}
+    ]
+}}
+
+Do not return markdown.
+Do not return code blocks.
+Return JSON only.
 
 Contract:
+
 {contract}
 """
 

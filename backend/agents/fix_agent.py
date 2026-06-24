@@ -5,16 +5,29 @@ def run_fix_agent(findings):
     prompt = f"""
 You are a senior Solidity security engineer.
 
-Generate fixes for the following findings.
-
-For each issue provide:
-
-Issue:
-Fix:
-Code Snippet:
+Generate fixes for the findings.
 
 Findings:
+
 {findings}
+
+Return ONLY valid JSON.
+
+Format:
+
+{{
+    "fixes": [
+        {{
+            "issue": "",
+            "solution": "",
+            "code_snippet": ""
+        }}
+    ]
+}}
+
+Do not return markdown.
+Do not return code blocks.
+Return JSON only.
 """
 
     return ask_gemini(prompt)
