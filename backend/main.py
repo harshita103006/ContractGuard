@@ -15,3 +15,9 @@ def home():
     return {
         "message": "ContractGuard Running"
     }
+
+@app.get("/health")
+def health():
+    return {
+        "status": "healthy"
+    }
